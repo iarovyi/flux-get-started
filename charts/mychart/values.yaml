@@ -6,3 +6,9 @@ pizzaToppings:
   - cheese
   - peppers
   - onions
+
+mysubchart:
+  dessert: upper cake
+
+global:
+  salad: caesar
