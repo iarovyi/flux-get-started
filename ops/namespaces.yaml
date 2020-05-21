@@ -1,0 +1,14 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: namespaces
+  namespace: kube-system
+spec:
+  chart:
+    git: git@github.com:eVisionSoftware/Home.ProductOps.git
+    path: charts/namespaces
+    ref: master
+  values:
+    helmResourcePolicy: keep
+    namespaces:
+      - ops
