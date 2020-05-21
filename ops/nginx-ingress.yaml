@@ -1,7 +1,7 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: devzone
+  name: toolszone
   namespace: ops
 spec:
   chart:
@@ -11,7 +11,7 @@ spec:
   values:
     config:
       proxy-real-ip-cidr:
-        - "10.2.0.0/20"
+        - "10.30.0.0/20"
     controller:
       service:
         enableHttp: false
