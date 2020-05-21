@@ -1,26 +1,26 @@
-# apiVersion: helm.fluxcd.io/v1
-# kind: HelmRelease
-# metadata:
-#   name: devzone
-#   namespace: ops
-# spec:
-#   chart:
-#     repository: https://kubernetes.github.io/ingress-nginx/
-#     name: ingress-nginx
-#     version: 2.0.2
-#   values:
-#     config:
-#       proxy-real-ip-cidr:
-#         - "10.2.0.0/20"
-#     controller:
-#       service:
-#         enableHttp: false
-#         targetPorts:
-#           https: http
-#         annotations:
-#           service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:044225404899:certificate/be1f5432-e91f-482b-a342-20d210f662c5 # tools.ps.evision.io
-#           service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
-#           service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
-#           service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '60'
-#           service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
-#           service.beta.kubernetes.io/aws-load-balancer-type: elb
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: devzone
+  namespace: ops
+spec:
+  chart:
+    repository: https://kubernetes.github.io/ingress-nginx/
+    name: ingress-nginx
+    version: 2.0.2
+  values:
+    config:
+      proxy-real-ip-cidr:
+        - "10.2.0.0/20"
+    controller:
+      service:
+        enableHttp: false
+        targetPorts:
+          https: http
+        annotations:
+          service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:044225404899:certificate/be1f5432-e91f-482b-a342-20d210f662c5 # tools.ps.evision.io
+          service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+          service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+          service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '60'
+          service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
+          service.beta.kubernetes.io/aws-load-balancer-type: elb
